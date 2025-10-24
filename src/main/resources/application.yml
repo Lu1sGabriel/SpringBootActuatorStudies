@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: SpringBootActuatorStudies
+
+management:
+  endpoint:
+    health:
+      show-details: always
