@@ -22,13 +22,17 @@ spring:
     default-property-inclusion: non_null
 
 management:
+  metrics:
+    tags:
+      application: ${spring.application.name}
+      instance: ${HOSTNAME:api}
   endpoints:
     web:
       exposure:
         include:
-          - "health"
-          - "httpexchanges"
-          - "prometheus"
+          - health
+          - httpexchanges
+          - prometheus
   endpoint:
     health:
       show-details: always
