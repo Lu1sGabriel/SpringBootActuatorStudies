@@ -2,7 +2,33 @@ spring:
   application:
     name: SpringBootActuatorStudies
 
+  datasource:
+    url: jdbc:postgresql://postgres:5432/springBootActuatorStudies_db
+    username: postgres
+    password: postgres1234
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    open-in-view: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  jackson:
+    time-zone: America/Sao_Paulo
+    default-property-inclusion: non_null
+
 management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - "health"
+          - "httpexchanges"
+          - "prometheus"
   endpoint:
     health:
       show-details: always
